@@ -15,13 +15,13 @@ import com.api.semanatec.model.entities.Usuario;
 import com.api.semanatec.service.AuthService;
 import com.api.semanatec.service.UsuarioService;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class FiltroAutenticacao extends OncePerRequestFilter {
 
-    private AuthService authService;
-    private UsuarioService usuarioService;
+    private final AuthService authService;
+    private final UsuarioService usuarioService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

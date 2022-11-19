@@ -19,15 +19,18 @@ import com.api.semanatec.filter.FiltroAutenticacao;
 import com.api.semanatec.service.AuthService;
 import com.api.semanatec.service.UsuarioService;
 
+import lombok.RequiredArgsConstructor;
+
 @EnableWebSecurity
 @Configuration
+@RequiredArgsConstructor
 public class SecurityConfiguration{
 
     @Autowired
-    private UsuarioService usuarioService;
+    private final UsuarioService usuarioService;
 
     @Autowired
-    private AuthService authService;
+    private final AuthService authService;
 	
     @Bean
 	AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
