@@ -16,14 +16,10 @@ import com.api.semanatec.repository.DisciplinaRepository;
 import com.api.semanatec.repository.PerfilRepository;
 import com.api.semanatec.repository.ProfessorRepository;
 import com.api.semanatec.repository.UsuarioRepository;
-import com.api.semanatec.service.UsuarioService;
 
 @Component
 public class StartDb implements CommandLineRunner {
-
-    @Autowired
-    private UsuarioService usuarioService;
-
+	
     @Autowired
     private UsuarioRepository usuarioRepository;
 
@@ -46,9 +42,9 @@ public class StartDb implements CommandLineRunner {
         List<Perfil> listaPerfis = perfilRepository.findAll();
 
         if (listaPerfis.isEmpty()) {
-            perfilRepository.saveAll(List.of(p1, p2));
+            perfilRepository.saveAll(List.of(p1, p2, p3));
 
-            Usuario u1 = new Usuario(null, "admin@ficr.edu.br", new BCryptPasswordEncoder().encode("123456"), p1);
+            Usuario u1 = new Usuario(null, "admin@s.ficr.edu.br", new BCryptPasswordEncoder().encode("123456"), p1);
             Usuario u2 = new Usuario(null, "diogenes.matias@p.ficr.edu.br", new BCryptPasswordEncoder().encode("123456"), p2);
             Usuario u3 = new Usuario(null, "wagner.silva@p.ficr.edu.br", new BCryptPasswordEncoder().encode("123456"), p2);
             usuarioRepository.saveAll(List.of(u1,u2, u3));

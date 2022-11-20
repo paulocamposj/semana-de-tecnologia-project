@@ -3,8 +3,6 @@ package com.api.semanatec.model.dtos.disciplina;
 import com.api.semanatec.model.entities.Disciplina;
 import com.api.semanatec.model.entities.Professor;
 
-import lombok.Data;
-
 public class DisciplinaMapper {
 
 

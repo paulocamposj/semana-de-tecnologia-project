@@ -47,7 +47,7 @@ public class SecurityConfiguration{
 	SecurityFilterChain filterChain(HttpSecurity http, AuthService authService,
 			UsuarioService usuarioService) throws Exception {
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/auth").permitAll().and().authorizeRequests()
-				.antMatchers(HttpMethod.POST, "api/v1/alunos").permitAll().anyRequest().authenticated().and().csrf()
+				.antMatchers(HttpMethod.GET, "/api/v1/alunos").permitAll().anyRequest().authenticated().and().csrf()
 				.disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .addFilterBefore(new FiltroAutenticacao(authService, usuarioService), UsernamePasswordAuthenticationFilter.class);
 		return http.build();

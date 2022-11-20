@@ -53,6 +53,7 @@ public class AuthService {
         Date dataExpiracao = new Date(hoje.getTime() + Long.parseLong(expiration));
 
         return JWT.create().withIssuer(issuer).withExpiresAt(dataExpiracao).withSubject(principal.getId().toString())
+        		.withClaim("usuario", principal.getEmail())
                 .sign(this.criarAlgorithm());
     }
 

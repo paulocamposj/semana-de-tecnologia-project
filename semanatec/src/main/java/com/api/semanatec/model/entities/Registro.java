@@ -1,41 +1,37 @@
 package com.api.semanatec.model.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.ZonedDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@Entity
-public class Aluno implements Serializable{
+public class Registro implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String aluno;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSSZZZZ", shape = JsonFormat.Shape.STRING, timezone = "America/Sao_Paulo")
+	private ZonedDateTime dataRegistro;
 	
-	@OneToOne
-	private Usuario usuario;
-	
-	@OneToMany(mappedBy = "aluno")
-	private List<Registro> registros = new ArrayList<>();
+	private Boolean isPresent;
 	
 	@ManyToOne
-	private Turma turma;
+	private Aluno aluno;
 
 }

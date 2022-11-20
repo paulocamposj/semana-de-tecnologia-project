@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.api.semanatec.model.entities.Professor;
 import com.api.semanatec.service.ProfessorService;
 
-import io.micrometer.core.ipc.http.HttpSender.Response;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -23,7 +22,6 @@ public class ProfessorController {
 
     @PostMapping
     public ResponseEntity<Professor> salvar(@RequestBody Professor professor) {
-
         return ResponseEntity.ok(professorService.salvar(professor));
     }
 }
