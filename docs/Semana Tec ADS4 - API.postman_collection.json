@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "e22154b3-0e91-46a9-b7c9-fdbe43e6981e",
+		"name": "Semana Tec ADS4 - API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18372179"
+	},
+	"item": [
+		{
+			"name": "Disciplinas",
+			"item": [
+				{
+					"name": "Salvar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiRklDUiIsImV4cCI6MTY2ODkxNDI4OX0.ksPQL4-WcrdAuOAzOvebNH5t7nDkjSCChX3n1Wtl91c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Lógica de programação\",\r\n    \"professorId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/disciplinas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"disciplinas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Professores",
+			"item": [
+				{
+					"name": "Salvar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiRklDUiIsImV4cCI6MTY2ODkxNDI4OX0.ksPQL4-WcrdAuOAzOvebNH5t7nDkjSCChX3n1Wtl91c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Diogenes\",\r\n    \"matricula\": \"ABC123\",\r\n    \"disciplinas\": [\r\n        {\r\n            \"nome\": \"Cliente Servidor\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/professores",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"professores"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Alunos",
+			"item": []
+		},
+		{
+			"name": "Usuários",
+			"item": []
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "auth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"diogenes.matias@p.ficr.edu.br\",\r\n    \"senha\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/auth",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Aulas",
+			"item": []
+		},
+		{
+			"name": "Registros",
+			"item": []
+		},
+		{
+			"name": "Turmas",
+			"item": []
+		},
+		{
+			"name": "teste",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiRklDUiIsImV4cCI6MTY2ODkxNDI4OX0.ksPQL4-WcrdAuOAzOvebNH5t7nDkjSCChX3n1Wtl91c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/alunos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"alunos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
