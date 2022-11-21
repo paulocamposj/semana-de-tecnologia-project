@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
+@Table(name = "tb_aluno")
 public class Aluno implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -27,7 +29,7 @@ public class Aluno implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String aluno;
+	private String nome;
 	
 	@OneToOne
 	private Usuario usuario;
