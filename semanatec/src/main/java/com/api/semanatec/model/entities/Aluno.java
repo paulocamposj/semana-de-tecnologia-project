@@ -29,6 +29,9 @@ public class Aluno implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	
+	private String matricula;
+	
 	private String nome;
 	
 	@OneToOne

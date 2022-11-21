@@ -75,9 +75,9 @@ public class StartDb implements CommandLineRunner {
             Turma t1 = new Turma(null, "ADS/SI", "4Noite", List.of(professor1, professor2), new ArrayList<>(), new ArrayList<>());
             turmaRepository.save(t1);
             
-            Aluno a1 = new Aluno(null, "José Orlando Ferreira do N. Filho", u4, new ArrayList<>(), t1);
-            Aluno a2 = new Aluno(null, "Paulo Ricardo Serafim Campos", u5, new ArrayList<>(), t1);
-            Aluno a3 = new Aluno(null, "Gustavo Vieira dos Santos", u6, new ArrayList<>(), t1);
+            Aluno a1 = new Aluno(null,"FR0001", "José Orlando Ferreira do N. Filho", u4, new ArrayList<>(), t1);
+            Aluno a2 = new Aluno(null,"FR0002", "Paulo Ricardo Serafim Campos", u5, new ArrayList<>(), t1);
+            Aluno a3 = new Aluno(null,"FR0003", "Gustavo Vieira dos Santos", u6, new ArrayList<>(), t1);
             alunoRepository.saveAll(List.of(a1, a2, a3));
         }
     }
