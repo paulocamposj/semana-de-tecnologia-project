@@ -2,6 +2,7 @@ package com.api.semanatec.model.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -37,6 +38,9 @@ public class Aula implements Serializable{
 	private Professor professor;
 	
 	@ManyToMany
-	private List<Registro> registros;
+	private List<Registro> registros = new ArrayList<>();
+	
+	@ManyToMany
+	private List<Turma> turmas = new ArrayList<>();
 
 }
