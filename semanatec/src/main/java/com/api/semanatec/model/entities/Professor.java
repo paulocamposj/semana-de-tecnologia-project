@@ -33,13 +33,8 @@ public class Professor implements Serializable {
 
     private String nome;
 
-    private String matricula;
-    
     @OneToOne
     @JsonIgnore
     private Usuario usuario;
-
-    @OneToMany(mappedBy = "professor", fetch = FetchType.LAZY)
-    private List<Disciplina> disciplinas = new ArrayList<>();
 
 }
