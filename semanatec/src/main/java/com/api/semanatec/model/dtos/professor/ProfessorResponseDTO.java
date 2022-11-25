@@ -11,6 +11,5 @@ public class ProfessorResponseDTO {
 
     private Long id;
     private String nome;
-    private String matricula;
     
 }

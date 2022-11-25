@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Table(name = "tb_usuario")
-public class Usuario implements UserDetails, Serializable{
+public class Usuario implements UserDetails, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id

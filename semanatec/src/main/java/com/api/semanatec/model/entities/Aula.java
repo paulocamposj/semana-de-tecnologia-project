@@ -22,24 +22,21 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tb_aula")
-public class Aula implements Serializable{
+public class Aula implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private LocalDate data;
-	
-	@ManyToOne
-	private Disciplina disciplina;
-	
+
 	@ManyToOne
 	private Professor professor;
-	
+
 	@ManyToMany
 	private List<Registro> registros = new ArrayList<>();
-	
+
 	@ManyToMany
 	private List<Turma> turmas = new ArrayList<>();
 
