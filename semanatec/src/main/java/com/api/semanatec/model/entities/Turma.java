@@ -33,7 +33,7 @@ public class Turma implements Serializable {
 
 	private String turma;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Professor professor;
 
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)

@@ -96,7 +96,46 @@
 		},
 		{
 			"name": "Alunos",
-			"item": []
+			"item": [
+				{
+					"name": "findByNome",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiRklDUiIsInVzdWFyaW8iOiJkaW9nZW5lcy5tYXRpYXNAcC5maWNyLmVkdS5iciIsImV4cCI6MTY2OTM3Nzg2NH0.ezcBRHX13u4HZpPL6YZIGplBQ9yZYiUiyvPpFksT1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/alunos/nome/?nome=Paulo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"alunos",
+								"nome",
+								""
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "Paulo"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Usuários",
@@ -144,7 +183,77 @@
 		},
 		{
 			"name": "Turmas",
-			"item": []
+			"item": [
+				{
+					"name": "salvar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiRklDUiIsInVzdWFyaW8iOiJkaW9nZW5lcy5tYXRpYXNAcC5maWNyLmVkdS5iciIsImV4cCI6MTY2OTQyNTUxMX0.-LcuvUG30yJQTExBiSq3-n27j_TTrD_AM3rzdsmC2Ko",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"turma\": \"ADS/SI 4 Noite\",\r\n    \"professorId\": 2,\r\n    \"alunosId\": [1,2]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/turmas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"turmas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiRklDUiIsInVzdWFyaW8iOiJkaW9nZW5lcy5tYXRpYXNAcC5maWNyLmVkdS5iciIsImV4cCI6MTY2OTQyNTUxMX0.-LcuvUG30yJQTExBiSq3-n27j_TTrD_AM3rzdsmC2Ko",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/turmas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"turmas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "teste",
@@ -154,7 +263,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiRklDUiIsImV4cCI6MTY2ODkxNDI4OX0.ksPQL4-WcrdAuOAzOvebNH5t7nDkjSCChX3n1Wtl91c",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiRklDUiIsInVzdWFyaW8iOiJkaW9nZW5lcy5tYXRpYXNAcC5maWNyLmVkdS5iciIsImV4cCI6MTY2OTM3Nzg2NH0.ezcBRHX13u4HZpPL6YZIGplBQ9yZYiUiyvPpFksT1Lw",
 							"type": "string"
 						}
 					]
@@ -162,7 +271,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/v1/alunos",
+					"raw": "localhost:8080/api/v1/alunos/test",
 					"host": [
 						"localhost"
 					],
@@ -170,7 +279,8 @@
 					"path": [
 						"api",
 						"v1",
-						"alunos"
+						"alunos",
+						"test"
 					]
 				}
 			},

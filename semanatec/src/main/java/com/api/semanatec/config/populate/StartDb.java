@@ -66,7 +66,14 @@ public class StartDb implements CommandLineRunner {
 					p3);
 			Usuario u6 = new Usuario(null, "gustavo.vieira@a.ficr.edu.br", new BCryptPasswordEncoder().encode("123456"),
 					p3);
-			usuarioRepository.saveAll(List.of(u1, u2, u3, u4, u5, u6));
+			Usuario u7 = new Usuario(null, "andrews.lima@a.ficr.edu.br", new BCryptPasswordEncoder().encode("123456"),
+					p3);
+			Usuario u8 = new Usuario(null, "barbara.anizio@a.ficr.edu.br", new BCryptPasswordEncoder().encode("123456"),
+					p3);
+			Usuario u9 = new Usuario(null, "david.leal@a.ficr.edu.br", new BCryptPasswordEncoder().encode("123456"),
+					p3);
+			usuarioRepository.saveAll(List.of(u1, u2, u3, u4, u5, u6, u7, u8, u9));
+			
 
 			Professor professor1 = new Professor(null, "Diogenes Carvalho Matias", "FR1234", u2, new ArrayList<>());
 			Professor professor2 = new Professor(null, "Wagner Johnatan da Silva", "FR4567", u3, new ArrayList<>());
@@ -80,10 +87,14 @@ public class StartDb implements CommandLineRunner {
 			Aluno a1 = new Aluno(null, "FR0001", "José Orlando Ferreira do N. Filho", u4, new ArrayList<>());
 			Aluno a2 = new Aluno(null, "FR0002", "Paulo Ricardo Serafim Campos", u5, new ArrayList<>());
 			Aluno a3 = new Aluno(null, "FR0003", "Gustavo Vieira dos Santos", u6, new ArrayList<>());
-			alunoRepository.saveAll(List.of(a1, a2, a3));
+			Aluno a4 = new Aluno(null, "FR0003", "Andrews Jose Clemente De Lima", u7, new ArrayList<>());
+			Aluno a5 = new Aluno(null, "FR0003", "Barbara Bianca Anizio Vicente Da Silva", u8, new ArrayList<>());
+			Aluno a6 = new Aluno(null, "FR0003", "David Lucas Campos Leal", u9, new ArrayList<>());
+			alunoRepository.saveAll(List.of(a1, a2, a3, a4, a5, a6));
 
-			//Turma t1 = new Turma(null, "ADS/SI 4 Noite", professor2, List.of(a1, a2, a3), new ArrayList<>());
-			//turmaRepository.save(t1);
+			// Turma t1 = new Turma(null, "ADS/SI 4 Noite", professor2, List.of(a1, a2, a3),
+			// new ArrayList<>());
+			// turmaRepository.save(t1);
 
 		}
 	}

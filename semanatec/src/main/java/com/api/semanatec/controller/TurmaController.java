@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.api.semanatec.model.dtos.turma.TurmaMapper;
 import com.api.semanatec.model.dtos.turma.TurmaRequestDTO;
 import com.api.semanatec.model.dtos.turma.TurmaResponseDTO;
-import com.api.semanatec.model.entities.Turma;
 import com.api.semanatec.repository.TurmaRepository;
 import com.api.semanatec.service.TurmaService;
 
@@ -28,17 +27,15 @@ public class TurmaController {
 
 	private final TurmaService turmaService;
 
-	private final TurmaRepository turmaRepository;
-
 	@PostMapping
-	public ResponseEntity<Turma> salvar(@RequestBody TurmaRequestDTO dto) {
+	public ResponseEntity<TurmaResponseDTO> salvar(@RequestBody TurmaRequestDTO dto) {
 		return ResponseEntity.ok(turmaService.salvar(dto));
 
 	}
 
 	@GetMapping
-	public ResponseEntity<List<Turma>> listar() {
-		return ResponseEntity.ok(turmaRepository.findAll());
+	public ResponseEntity<List<TurmaResponseDTO>> listar() {
+		return ResponseEntity.ok(turmaService.listar());
 	}
 
 }

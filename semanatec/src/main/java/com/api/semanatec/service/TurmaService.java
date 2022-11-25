@@ -1,5 +1,8 @@
 package com.api.semanatec.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
 import com.api.semanatec.model.dtos.turma.TurmaMapper;
@@ -22,7 +25,7 @@ public class TurmaService {
 	private final AlunoRepository alunoRepository;
 	private final ProfessorRepository professorRepository;
 
-	public Turma salvar(TurmaRequestDTO dto) {
+	public TurmaResponseDTO salvar(TurmaRequestDTO dto) {
 		Turma turma = new Turma();
 		turma.setTurma(dto.getTurma());
 		Professor professor = professorRepository.findById(dto.getProfessorId()).get();
@@ -31,7 +34,13 @@ public class TurmaService {
 			Aluno a = alunoRepository.findById(id).get();
 			turma.getAlunos().add(a);
 		}
-		return turmaRepository.save(turma);
 
+		turmaRepository.save(turma);
+		return TurmaMapper.fromEntity(turma);
+
+	}
+
+	public List<TurmaResponseDTO> listar() {
+		return turmaRepository.findAll().stream().map(TurmaMapper::fromEntity).collect(Collectors.toList());
 	}
 }

@@ -3,7 +3,7 @@ package com.api.semanatec.model.dtos.turma;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.api.semanatec.model.dtos.aluno.AlunoResponseDTO;
+import com.api.semanatec.model.entities.Aluno;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +20,6 @@ public class TurmaResponseDTO {
 
     private String professor;
    
-    private List<AlunoResponseDTO> alunos = new ArrayList<>();
+    private List<Aluno> alunos = new ArrayList<>();
 
 }
