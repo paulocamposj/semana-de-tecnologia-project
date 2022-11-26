@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.semanatec.model.dtos.turma.TurmaMapper;
@@ -36,8 +37,8 @@ public class TurmaController {
 	}
 
 	@GetMapping
-	public ResponseEntity<List<TurmaResponseDTO>> listar() {
-		return ResponseEntity.ok(turmaService.listar());
+	public ResponseEntity<List<TurmaResponseDTO>> listar(@RequestParam(required = false) String professor) {
+		return ResponseEntity.ok(turmaService.listar(professor));
 	}
 
 }

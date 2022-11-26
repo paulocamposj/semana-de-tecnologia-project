@@ -2,6 +2,7 @@ package com.api.semanatec.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.stereotype.Service;
 
@@ -40,7 +41,10 @@ public class TurmaService {
 
 	}
 
-	public List<TurmaResponseDTO> listar() {
-		return turmaRepository.findAll().stream().map(TurmaMapper::fromEntity).collect(Collectors.toList());
+	public List<TurmaResponseDTO> listar(String professor) {
+		if(professor == null)
+			return turmaRepository.findAll().stream().map(TurmaMapper::fromEntity).collect(Collectors.toList());
+		return turmaRepository.findByProfessorNomeContainingIgnoreCase(professor).stream().map(TurmaMapper::fromEntity).collect(Collectors.toList());
 	}
+
 }
