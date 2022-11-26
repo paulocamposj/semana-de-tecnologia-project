@@ -24,13 +24,8 @@ public class AlunoController {
 
 	private final AlunoService alunoService;
 
-	@GetMapping("/nome")
+	@GetMapping
 	public ResponseEntity<List<AlunoResponseDTO>> listar(@RequestParam(required = false) String nome) {
 		return ResponseEntity.ok(alunoService.listar(nome));
-	}
-
-	@GetMapping("/test")
-	public ResponseEntity<String> getTest() {
-		return ResponseEntity.ok("Chegou!");
 	}
 }
