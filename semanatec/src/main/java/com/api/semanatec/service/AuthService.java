@@ -54,6 +54,7 @@ public class AuthService {
 
         return JWT.create().withIssuer(issuer).withExpiresAt(dataExpiracao).withSubject(principal.getId().toString())
         		.withClaim("usuario", principal.getEmail())
+                .withClaim("role", principal.getPerfil().getTipo())
                 .sign(this.criarAlgorithm());
     }
 
