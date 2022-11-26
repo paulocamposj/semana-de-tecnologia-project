@@ -17,12 +17,14 @@ import com.api.semanatec.model.dtos.turma.TurmaResponseDTO;
 import com.api.semanatec.repository.TurmaRepository;
 import com.api.semanatec.service.TurmaService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("api/v1/turmas")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearerAuth")
 public class TurmaController {
 
 	private final TurmaService turmaService;
