@@ -1,6 +1,7 @@
 package com.api.semanatec.service;
 
 import java.util.Date;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +13,11 @@ import org.springframework.stereotype.Service;
 
 import com.api.semanatec.model.dtos.Auth.AuthRequestDTO;
 import com.api.semanatec.model.dtos.token.TokenDTO;
+import com.api.semanatec.model.entities.Aluno;
+import com.api.semanatec.model.entities.Professor;
 import com.api.semanatec.model.entities.Usuario;
+import com.api.semanatec.repository.AlunoRepository;
+import com.api.semanatec.repository.ProfessorRepository;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
@@ -25,6 +30,12 @@ public class AuthService {
 
     @Autowired
     private AuthenticationManager authManager;
+
+    @Autowired
+    private AlunoRepository alunoRepository;
+
+    @Autowired
+    private ProfessorRepository professorRepository;
 
     @Value("${ficr.jwt.expiration}")
     private String expiration;
@@ -52,8 +63,21 @@ public class AuthService {
         Date hoje = new Date();
         Date dataExpiracao = new Date(hoje.getTime() + Long.parseLong(expiration));
 
+        Optional<Aluno> aluno = alunoRepository.findByUsuarioEmailIgnoreCase(principal.getEmail());
+        Optional<Professor> professor = professorRepository.findByUsuarioEmailIgnoreCase(principal.getEmail());
+
+        String nome;
+        if (aluno.isPresent()) {
+            nome = aluno.get().getNome();
+        } else if (professor.isPresent()) {
+            nome = professor.get().getNome();
+        } else {
+            nome = "ADMIN";
+        }
+
         return JWT.create().withIssuer(issuer).withExpiresAt(dataExpiracao).withSubject(principal.getId().toString())
-        		.withClaim("usuario", principal.getEmail())
+                .withClaim("nome", nome)
+                .withClaim("usuario", principal.getEmail())
                 .withClaim("role", principal.getPerfil().getTipo())
                 .sign(this.criarAlgorithm());
     }

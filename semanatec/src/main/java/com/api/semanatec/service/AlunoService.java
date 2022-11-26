@@ -19,6 +19,7 @@ public class AlunoService {
 
     private final AlunoRepository alunoRepository;
 
+
     public List<AlunoResponseDTO> listar(String nome) {
         if(nome == null){
             return alunoRepository.findAll().stream().map(AlunoMapper::fromEntity).collect(Collectors.toList());
