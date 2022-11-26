@@ -36,7 +36,7 @@ public class Turma implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Professor professor;
 
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "turma_id")
 	private List<Aluno> alunos = new ArrayList<>();
 

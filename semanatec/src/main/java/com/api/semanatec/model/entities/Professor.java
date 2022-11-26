@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -33,7 +34,7 @@ public class Professor implements Serializable {
 
     private String nome;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JsonIgnore
     private Usuario usuario;
 
