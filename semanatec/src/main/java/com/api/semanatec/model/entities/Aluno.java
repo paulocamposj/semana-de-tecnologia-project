@@ -42,5 +42,4 @@ public class Aluno implements Serializable {
 	@JsonIgnore
 	@OneToMany(mappedBy = "aluno")
 	private List<Registro> registros = new ArrayList<>();
-
 }

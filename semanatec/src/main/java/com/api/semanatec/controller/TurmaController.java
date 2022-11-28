@@ -1,7 +1,6 @@
 package com.api.semanatec.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,10 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.semanatec.model.dtos.turma.TurmaMapper;
 import com.api.semanatec.model.dtos.turma.TurmaRequestDTO;
 import com.api.semanatec.model.dtos.turma.TurmaResponseDTO;
-import com.api.semanatec.repository.TurmaRepository;
 import com.api.semanatec.service.TurmaService;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

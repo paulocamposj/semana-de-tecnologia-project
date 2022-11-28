@@ -2,12 +2,9 @@ package com.api.semanatec.controller;
 
 import java.util.List;
 
+import com.api.semanatec.model.dtos.aluno.AlunoRequestDTO;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.api.semanatec.model.dtos.aluno.AlunoResponseDTO;
 import com.api.semanatec.service.AlunoService;
@@ -28,4 +25,15 @@ public class AlunoController {
 	public ResponseEntity<List<AlunoResponseDTO>> listar(@RequestParam(required = false) String nome) {
 		return ResponseEntity.ok(alunoService.listar(nome));
 	}
+
+	@PostMapping
+	public ResponseEntity<AlunoResponseDTO> cadastrar(@RequestBody AlunoRequestDTO aluno) {
+		return ResponseEntity.ok(alunoService.salvar(aluno));
+	}
+
+	@DeleteMapping("/{id}")
+	public void excluir(@PathVariable Long id ){
+		alunoService.excluir(id);
+	}
+
 }
