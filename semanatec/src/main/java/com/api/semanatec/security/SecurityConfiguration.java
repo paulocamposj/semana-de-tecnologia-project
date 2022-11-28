@@ -1,6 +1,5 @@
 package com.api.semanatec.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -19,29 +18,20 @@ import com.api.semanatec.filter.FiltroAutenticacao;
 import com.api.semanatec.service.AuthService;
 import com.api.semanatec.service.UsuarioService;
 
-import lombok.RequiredArgsConstructor;
-
 @EnableWebSecurity
 @Configuration
-@RequiredArgsConstructor
-public class SecurityConfiguration{
-
-    @Autowired
-    private final UsuarioService usuarioService;
-
-    @Autowired
-    private final AuthService authService;
+public class SecurityConfiguration {
 
 	private static final String[] AUTH_WHITELIST = {
-        // -- Swagger UI v2
-        "/v2/api-docs", "/swagger-resources", "/swagger-resources/**", "/configuration/ui"
-        , "/configuration/security", "/swagger-ui.html", "/webjars/**"
-        // -- Swagger UI v3 (OpenAPI)
-        , "/v3/api-docs/**", "/swagger-ui/**", "/api-docs/**"
-        // other public endpoints of your API may be appended to this array
-};
-	
-    @Bean
+			// -- Swagger UI v2
+			"/v2/api-docs", "/swagger-resources", "/swagger-resources/**", "/configuration/ui",
+			"/configuration/security", "/swagger-ui.html", "/webjars/**"
+			// -- Swagger UI v3 (OpenAPI)
+			, "/v3/api-docs/**", "/swagger-ui/**", "/api-docs/**"
+			// other public endpoints of your API may be appended to this array
+	};
+
+	@Bean
 	AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
 			throws Exception {
 		return authenticationConfiguration.getAuthenticationManager();
@@ -60,7 +50,8 @@ public class SecurityConfiguration{
 				.antMatchers(AUTH_WHITELIST).permitAll()
 				.anyRequest().authenticated().and().csrf()
 				.disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .addFilterBefore(new FiltroAutenticacao(authService, usuarioService), UsernamePasswordAuthenticationFilter.class);
+				.addFilterBefore(new FiltroAutenticacao(authService, usuarioService),
+						UsernamePasswordAuthenticationFilter.class);
 		return http.build();
 	}
 
@@ -68,5 +59,5 @@ public class SecurityConfiguration{
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-    
+
 }
