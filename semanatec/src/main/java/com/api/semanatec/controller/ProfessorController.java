@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.semanatec.model.dtos.professor.ProfessorRequestDTO;
-import com.api.semanatec.model.dtos.professor.ProfessorResponseDTO;
-import com.api.semanatec.model.entities.Professor;
+import com.api.semanatec.filter.professor.ProfessorRequestDTO;
+import com.api.semanatec.filter.professor.ProfessorResponseDTO;
 import com.api.semanatec.service.ProfessorService;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

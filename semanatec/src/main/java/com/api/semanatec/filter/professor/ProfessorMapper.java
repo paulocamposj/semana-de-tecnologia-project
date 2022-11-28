@@ -1,4 +1,4 @@
-package com.api.semanatec.model.dtos.professor;
+package com.api.semanatec.filter.professor;
 
 import com.api.semanatec.model.entities.Professor;
 import com.api.semanatec.model.entities.Usuario;

@@ -1,15 +1,14 @@
 package com.api.semanatec.service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.api.semanatec.model.dtos.professor.ProfessorMapper;
-import com.api.semanatec.model.dtos.professor.ProfessorRequestDTO;
-import com.api.semanatec.model.dtos.professor.ProfessorResponseDTO;
+import com.api.semanatec.filter.professor.ProfessorMapper;
+import com.api.semanatec.filter.professor.ProfessorRequestDTO;
+import com.api.semanatec.filter.professor.ProfessorResponseDTO;
 import com.api.semanatec.model.entities.Perfil;
 import com.api.semanatec.model.entities.Professor;
 import com.api.semanatec.repository.PerfilRepository;

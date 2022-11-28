@@ -1,4 +1,4 @@
-package com.api.semanatec.model.dtos.professor;
+package com.api.semanatec.filter.professor;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
